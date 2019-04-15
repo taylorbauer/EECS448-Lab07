@@ -1,0 +1,10 @@
+1. removeFront() does not decrement size properly 
+2. removeBack() does not decrement size properly
+3. isEmpty() always returns true
+4. search(value) will return true on an empty list
+5. search(value) will return true when the value isn't in a populated list
+6. removeFront() returns true when removing an item from an empty list
+7. removeBack() returns true when removing an item from an empty list
+
+Unfortunately, we cannot check if the adders and removers are adding/removing the
+correct values at the correct places, because our search function is broken.
