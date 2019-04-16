@@ -5,11 +5,5 @@
 5. search(value) will return true when the value isn't in a populated list
 6. removeFront() returns true when removing an item from an empty list
 7. removeBack() returns true when removing an item from an empty list
-<<<<<<< HEAD
 8. removeFront() doesn't properly update front pointer, resulting in a segmentation fault when trying to access item at front of list
 9. removeBack() doesn't set the penultimate node's pointer to null, resulting in a segfault when trying to access last node after a node is removed
-=======
->>>>>>> ba52b37e3d780cfd562472bb620f65cc74b50a77
-
-Unfortunately, we cannot check if the adders and removers are adding/removing the
-correct values at the correct places, because our search function is broken.
