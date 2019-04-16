@@ -38,6 +38,10 @@ class Test {
     bool emptyListSearch();
     bool emptyRemoveFront();
     bool emptyRemoveBack();
+    bool addFrontVerify();
+    bool addBackVerify();
+    bool removeFrontVerify();
+    bool removeBackVerify();
 
 };
 

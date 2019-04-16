@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "LinkedListOfInts.h"
 #include "Test.h"
 
@@ -29,6 +30,10 @@ void Test::runTests() {
     std::cout << "Test " << testCount << ": search returns false on an empty list: " << testToString(emptyListSearch());
     std::cout << "Test " << testCount << ": removeFront() returns false on an empty list: " << testToString(emptyRemoveFront());
     std::cout << "Test " << testCount << ": removeBack() returns false on an empty list: " << testToString(emptyRemoveBack());
+    std::cout << "Test " << testCount << ": addFront properly adds value to front of list: " << testToString(addFrontVerify());
+    std::cout << "Test " << testCount << ": addBack properly adds value to back of list: " << testToString(addBackVerify());
+    std::cout << "Test " << testCount << ": removeFront properly removes value from front of list: " << testToString(removeFrontVerify());
+    std::cout << "Test " << testCount << ": removeBack properly removes value from back of list: " << testToString(removeBackVerify());
     return;
 }
 
@@ -47,8 +52,8 @@ std::string Test::testToString(bool result) {
 
 LinkedListOfInts Test::simpleList() {
     LinkedListOfInts list;
-    for (int i = 0; i < 100; i++) {
-        list.addBack(i);
+    for (int i = 99; i <= 0; i++) {
+        list.addFront(i);
     }
     return list;
 }
@@ -157,4 +162,30 @@ bool Test::emptyRemoveFront() {
 bool Test::emptyRemoveBack() {
     LinkedListOfInts list;
     return (list.removeBack());
+}
+
+bool Test::addFrontVerify() {
+    LinkedListOfInts list = simpleList();
+    list.addFront(999);
+    return (list.toVector().front() == 999);
+}
+
+bool Test::addBackVerify() {
+    LinkedListOfInts list = simpleList();
+    list.addBack(999);
+    return (list.toVector().back() == 999);
+}
+
+bool Test::removeFrontVerify() {
+    LinkedListOfInts list = simpleList();
+    list.removeFront();
+    // return (list.toVector().front() == 1);   <- this will always cause a segfault
+    return false;
+}
+
+bool Test::removeBackVerify() {
+    LinkedListOfInts list = simpleList();
+    list.removeBack();
+    // return (list.toVector().back() == 98);   <- this will also always cause a segfault
+    return false;
 }
