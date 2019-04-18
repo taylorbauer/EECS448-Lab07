@@ -96,6 +96,7 @@ bool Test::nonEmpty() {
 
 bool Test::sizeSimpleList() {
     LinkedListOfInts list = simpleList();
+    std::cout << list.size();
     return (list.size() == 100);
 }
 
@@ -133,12 +134,12 @@ bool Test::emptyAfterRemoveBacks() {
 
 bool Test::searchReturnsTrue() {
     LinkedListOfInts list = simpleList();
-    return (list.search(40));
+    return (!list.search(40));
 }
 
 bool Test::searchReturnsFalse() {
     LinkedListOfInts list = simpleList();
-    return (list.search(-40));
+    return (!list.search(-40));
 }
 
 bool Test::searchWithMultiples() {
@@ -151,17 +152,17 @@ bool Test::searchWithMultiples() {
 
 bool Test::emptyListSearch() {
     LinkedListOfInts list;
-    return (list.search(40));
+    return (!list.search(40));
 }
 
 bool Test::emptyRemoveFront() {
     LinkedListOfInts list;
-    return (list.removeFront());
+    return (!list.removeFront());
 }
 
 bool Test::emptyRemoveBack() {
     LinkedListOfInts list;
-    return (list.removeBack());
+    return (!list.removeBack());
 }
 
 bool Test::addFrontVerify() {
